@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    All Categories - ToriloShop
+{% endblock %}
+
+{% block content %}
+
+<h1>All Categories</h1>
+
+{% for category in categories %}
+
+    <div>
+
+        <h3>{{ category.name }}</h3>
+
+        <p>
+            Products: {{ category.product_count }}
+        </p>
+
+        <a href="{% url 'category_detail' category.slug %}">
+            View Category
+        </a>
+
+    </div>
+
+{% empty %}
+
+    <p>No categories found.</p>
+
+{% endfor %}
+
+{% endblock %}

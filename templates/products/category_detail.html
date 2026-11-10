@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ category.name }} - ToriloShop
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ category.name }}</h1>
+
+<p>
+    <strong>Products:</strong>
+    {{ products|length }}
+</p>
+
+{% for product in products %}
+
+    <div>
+        <h3>{{ product.name }}</h3>
+        <p>Price: ₦{{ product.price }}</p>
+        <a href="{% url 'product_detail' product.pk %}">
+            View Details
+        </a>
+    </div>
+
+{% empty %}
+
+    <p>No products in this category.</p>
+
+{% endfor %}
+
+{% endblock %}

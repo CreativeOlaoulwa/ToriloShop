@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Dashboard - ToriloShop{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ user.username}}!</h1>
+
+    <p>Email: {{ user.email }}</p>
+    <p>You are logged in.</p>
+
+    <a href="{% url 'product_list' %}" class="btn">Browse Products</a>
+{% endblock %}
